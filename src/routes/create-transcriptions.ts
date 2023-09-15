@@ -7,7 +7,7 @@ import { openai } from "../lib/openai";
 
 
 export async function createTranscriptionRoute(app: FastifyInstance) {
-  app.get("/videos/:videoid/transcription", async (request, reply) => {
+  app.post("/videos/:videoId/transcription", async (request, reply) => {
 
     const paramsSchema = z.object({
       videoId: z.string().uuid()
@@ -35,7 +35,10 @@ export async function createTranscriptionRoute(app: FastifyInstance) {
       response_format: 'json',
       temperature: 0,
       prompt,
-    })
+    }).catch((error) => {
+      console.log(error);
+      throw error;
+    });
 
     const transcription = response.text;
 

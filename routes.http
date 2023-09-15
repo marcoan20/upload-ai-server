@@ -13,3 +13,26 @@ Content-Type: audio/mpeg
 
 < ./teste.mp3
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+# @name create-transcription
+POST http://localhost:3333/videos/dffd5f83-2531-43fc-9555-fce00b76c109/transcription
+Content-Type: application/json
+
+{
+  "prompt": "motivacional"
+}
+
+
+###
+
+# @name generate-ai-completion
+POST http://localhost:3333/ai/complete
+Content-Type: application/json
+
+{
+  "videoId": "dffd5f83-2531-43fc-9555-fce00b76c109",
+  "temperature": 0.5,
+  "template": "Gere um texto motivacional seguindo a mesma linha da transcrição a seguir: '''{transcription}'''"
+}

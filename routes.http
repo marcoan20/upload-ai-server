@@ -34,5 +34,5 @@ Content-Type: application/json
 {
   "videoId": "dffd5f83-2531-43fc-9555-fce00b76c109",
   "temperature": 0.5,
-  "template": "Gere um texto motivacional seguindo a mesma linha da transcrição a seguir: '''{transcription}'''"
+  "prompt": "Gere um texto motivacional seguindo a mesma linha da transcrição a seguir: '''{transcription}'''"
 }
